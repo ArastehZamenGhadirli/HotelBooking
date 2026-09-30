@@ -88,7 +88,7 @@ class BookingListCreateView(generics.ListCreateAPIView):
     queryset = Booking.objects.all()
     
     # 👇 custom JWT permission + service token
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, HasServiceToken]
 
     def get_serializer_class(self):
         return BookingSerializer if self.request.method == 'POST' else BookingReadSerializer
