@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4941bdc-e69c-406d-9094-34bd81b9d348" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/booking/authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/permissions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookingmangment/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookingmangment/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="b4941bdc-e69c-406d-9094-34bd81b9d348" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1790770170566</updated>
-      <workItem from="1790770171586" duration="2973000" />
+      <workItem from="1790770171586" duration="4560000" />
     </task>
     <servers />
   </component>

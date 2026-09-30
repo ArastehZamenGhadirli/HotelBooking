@@ -70,12 +70,13 @@
 
 
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import extend_schema, extend_schema_view
 
 from .models import Booking
 from .serializers import BookingSerializer, BookingReadSerializer
 
-from .permissions import HasValidJWT, HasServiceToken
+from .permissions import HasServiceToken
 from .tasks import send_booking_notification
 
 
@@ -87,7 +88,7 @@ class BookingListCreateView(generics.ListCreateAPIView):
     queryset = Booking.objects.all()
     
     # 👇 custom JWT permission + service token
-    permission_classes = [HasValidJWT, HasServiceToken]
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         return BookingSerializer if self.request.method == 'POST' else BookingReadSerializer
@@ -112,7 +113,7 @@ class BookingListCreateView(generics.ListCreateAPIView):
 class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = [HasValidJWT, HasServiceToken]
+    permission_classes = [IsAuthenticated, HasServiceToken]
 
     def get_queryset(self):
         return Booking.objects.filter(
