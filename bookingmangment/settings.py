@@ -168,7 +168,7 @@ REST_FRAMEWORK = {
 
     # JWT authentication
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'booking.authentication.StatelessJWTAuthentication',
     ),
 
     # Filtering
@@ -183,7 +183,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     # 👇 MUST match the Auth Service's key — this is how Booking trusts the token
-    'SIGNING_KEY': os.environ.get('JWT_SIGNING_KEY', SECRET_KEY),
+    'SIGNING_KEY': os.environ['JWT_SIGNING_KEY'],
     'ALGORITHM': 'HS256',
     'AUTH_HEADER_TYPES': ('Bearer',),
     'USER_ID_CLAIM': 'user_id',
