@@ -3,7 +3,6 @@ from hotels.enums import BookingStatus
 from hotels.models import Hotel,Room
 # Create your models here.
 
-
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
