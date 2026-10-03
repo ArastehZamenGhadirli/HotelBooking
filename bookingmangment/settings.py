@@ -60,7 +60,6 @@ MIDDLEWARE = [
 
 
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -181,15 +180,15 @@ REST_FRAMEWORK = {
     ),
 }
 
+
 SIMPLE_JWT = {
-    # 👇 MUST match the Auth Service's key — this is how Booking trusts the token
-    'SIGNING_KEY': os.environ['JWT_SIGNING_KEY'],
-    'ALGORITHM': 'HS256',
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'USER_ID_CLAIM': 'user_id',
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
-    'BLACKLIST_AFTER_ROTATION': False,   # 👈 stateless (no blacklist table)
+    'ROTATE_REFRESH_TOKENS': True,
+    'SIGNING_KEY': 'dev-shared-key-123456',   # ← THE FIX: same value in both services
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
 }
 
 

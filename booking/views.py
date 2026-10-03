@@ -84,11 +84,11 @@ from .tasks import send_booking_notification
     list=extend_schema(tags=['Bookings'], summary="List the current user's bookings"),
     create=extend_schema(tags=['Bookings'], summary="Create a booking"),
 )
-class BookingListCreateView(generics.ListCreateAPIView):
+class BookingListCreateView(generics.ListCreateAPIView):  
     queryset = Booking.objects.all()
     
-    # 👇 custom JWT permission + service token
-    permission_classes = [IsAuthenticated, HasServiceToken]
+    # 👇 custom JWT permission 
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         return BookingSerializer if self.request.method == 'POST' else BookingReadSerializer
@@ -110,10 +110,10 @@ class BookingListCreateView(generics.ListCreateAPIView):
     partial_update=extend_schema(tags=['Bookings'], summary="Partial update"),
     destroy=extend_schema(tags=['Bookings'], summary="Delete booking"),
 )
-class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
+class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):  # ok tested 
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = [IsAuthenticated, HasServiceToken]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Booking.objects.filter(
