@@ -3,7 +3,30 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.settings import api_settings
 from drf_spectacular.extensions import OpenApiAuthenticationExtension
 
+class SimpleUser:
+    """
+    A stateless user object — no DB, no model.
+    Created from the JWT payload on every request.
+    """
+    def __init__(self, user_id, claims=None):
+        self.id = user_id
+        self.pk = user_id
+        self.is_active = True
+        self.is_authenticated = True
+        self.is_anonymous = False
+        self.claims = claims or {}
 
+        # Optional convenience attributes
+        self.username = self.claims.get('username', '')
+        self.email = self.claims.get('email', '')
+
+    def __str__(self):
+        return f"SimpleUser(id={self.id}, username={self.username})"
+
+    def __repr__(self):
+        return self.__str__()
+
+    
 class StatelessJWTAuthentication(JWTAuthentication):
     def get_user(self, validated_token):
         try:
